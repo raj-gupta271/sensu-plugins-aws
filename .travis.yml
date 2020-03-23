@@ -10,11 +10,7 @@ rvm:
 - 2.3.0
 - 2.4.1
 notifications:
-  email:
-    recipients:
-    - sensu-plugin@sensu-plugins.io
-    on_success: change
-    on_failure: always
+  email: false
 script:
 - bundle exec rake default
 - gem build sensu-plugins-aws.gemspec
@@ -24,14 +20,14 @@ before_deploy:
 deploy:
 - provider: rubygems
   api_key:
-    secure: Yl+P21/xvWHf1sjSM+qdSG6r+gmxhf4eEuwH/m94TYqQlI7VR6RQIrKRcwS7e8n6BTNBCDXI+NtQXI2dIOTg8BMfK9qajUH3DpBogL1p8P9jCgXMtzUURd1NN2jta0eBLyaHMCpU91XfGVjiBotDRxyyIRQ0N9T1SD/cMkum5Gc=
+    secure: P+HLvK5cpldG0mivBdnd95VC+43efrx/zIHSuatHwW0GoazdWqtzdtwHLTykSb1QnsuKACpzGEmJXf67P0MGuRL+ZpZ+RTKGfO/7B4NVzdmuVaBxOF5B3Wukf59KcU44+67blUfKcUWZcRRpsUdFxMuulOwHfUc8vKQGoCDfCSbUe1FMnoszuun7U6Ean/SOKugcu3iX+LNp1gfjvqiyqTSUmnnOrBODbWhP4/UP5WQkV26iRqdGk9+GcxOKJT4nSijJDMGdyTXwIXS71CBhf44g5YzIk712kqA+9fkMjHmZIqDBHTaRKOdG4LaS86tMsM6ndmNA3IV5Vx/FJys7MjJ2n2QfDYcLmY/1tF5GCh5XuDHVDSAy3JPRDELkhcwn7pwFclMvxc/Ucp77to2k0JjhKTuQgJJTaRUbTkBWKyk5izMW+aU+4ys63EXRjiKxOq0cBx1HwSDTlpIQVuk4Rdw2bzmPHVpewV9Ny6K8oVFT+COTnlYB6lgSd4FOwECiL8KtjsY8VXERROspmblJE8X/j7K8CIPz4k2vn3myxlKdpSx63HL3eTDwoxomyMIgqyudTQIJd+I+zrQLv+tubeCg6XvDljI508YvEn3mm6c2y6eBvzgmfyJpTrblnDuicqYSZLx85dROX+EAZP0FqsE/TFt2mfRU370sy3xngSA=
   gem: sensu-plugins-aws
   on:
     tags: true
     all_branches: true
     rvm: 2.3.0
     rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-aws
+    repo: boutetnico/sensu-plugins-aws
 - provider: script
   script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-aws
   skip_cleanup: true
