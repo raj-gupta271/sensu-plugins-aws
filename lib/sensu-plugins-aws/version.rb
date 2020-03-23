@@ -1,7 +1,8 @@
 module SensuPluginsAWS
   module Version
-    UPSTREAM = '18.5.0'.freeze
-    FORK_REV = 1
-    VER_STRING = [UPSTREAM, FORK_REV].compact.join('-')
+    MAJOR = 1
+    MINOR = 0
+    PATCH = 0
+    VER_STRING = [MAJOR, MINOR, PATCH].compact.join('.')
   end
 end

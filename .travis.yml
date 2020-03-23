@@ -29,7 +29,7 @@ deploy:
     rvm: 2.4.1
     repo: boutetnico/sensu-plugins-aws
 - provider: script
-  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-aws
+  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico
   skip_cleanup: true
   on:
     tags: true

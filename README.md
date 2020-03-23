@@ -4,6 +4,10 @@
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-aws-boutetnico.svg)](https://badge.fury.io/rb/sensu-plugins-aws-boutetnico.svg)
 [![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/boutetnico/sensu-plugins-aws)
 
+## This is an unofficial fork
+
+Due to the lack of activity from owners of [sensu-plugins-aws](https://github.com/sensu-plugins/sensu-plugins-aws) I have created this fork. It is automatically tested, built and published to [RubyGems](https://rubygems.org/gems/sensu-plugins-aws-boutetnico/) and [Bonsai](https://bonsai.sensu.io/assets/boutetnico/sensu-plugins-aws). It includes several new plugins as well as some improvements. Please check the changelog at the [GitHub Releases page](https://github.com/boutetnico/sensu-plugins-aws/releases).
+
 ## Sensu Asset
 The Sensu assets packaged from this repository are built against the Sensu Ruby runtime environment. When using these assets as part of a Sensu Go resource (check, mutator or handler), make sure you include the corresponding Sensu Ruby runtime asset in the list of assets needed by the resource. The current ruby-runtime assets can be found [here](https://bonsai.sensu.io/assets/sensu/sensu-ruby-runtime) in the [Bonsai Asset Index](bonsai.sensu.io).
 
