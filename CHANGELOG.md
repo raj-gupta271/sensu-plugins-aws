@@ -6,6 +6,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 ## [Unreleased]
 ### Added
 - `check-ebs-burst-limit.rb`: add `--tag`/`-t` option to specify a volume tag to output in status message. (@boutetnico)
+- `check-cloudwatch-alarms.rb`: `--name-prefix`/`-p` option added to filter alarm names by a prefix. (@boutetnico)
 
 ## [18.5.0] - 2020-01-28
 ### Changed
