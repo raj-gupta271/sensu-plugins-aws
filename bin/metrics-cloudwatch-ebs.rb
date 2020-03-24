@@ -108,7 +108,7 @@ class CloudWatchEc2Metrics < Sensu::Plugin::Metric::CLI::Graphite
       instance.block_device_mappings.each do |volume|
         r = cloud_watch_metric(key, static, volume)
         keys = [config[:scheme]]
-        instance_name = config[:tag] ? "#{instance_tag(instance, config[:tag])}" : instance.instance_id
+        instance_name = config[:tag] ? instance_tag(instance, config[:tag]).to_s : instance.instance_id
         keys.concat [instance_name, volume.device_name, key, static]
         output(keys.join('.'), r[:datapoints].first[static.downcase]) unless r[:datapoints].first.nil?
       end
@@ -117,7 +117,7 @@ class CloudWatchEc2Metrics < Sensu::Plugin::Metric::CLI::Graphite
 
   def print_metrics(metrics, instance)
     metrics_statistic = {
-      'BurstBalance' => 'Average',
+      'BurstBalance' => 'Average'
     }
 
     metrics.each do |metric|
@@ -133,7 +133,7 @@ class CloudWatchEc2Metrics < Sensu::Plugin::Metric::CLI::Graphite
     if metrics.nil?
       unknown 'No metrics provided. See usage for details'
     end
-    ret = metrics.split(',')
+    metrics.split(',')
   end
 
   def instance_tag(instance, tag_name)

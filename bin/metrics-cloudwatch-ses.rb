@@ -117,14 +117,12 @@ class CloudWatchSesMetrics < Sensu::Plugin::Metric::CLI::Graphite
     if metrics.nil?
       unknown 'No metrics provided. See usage for details'
     end
-    ret = metrics.split(',')
+    metrics.split(',')
   end
 
   def run
-    begin
-      metrics = parse_metrics(config[:metrics])
-      print_metrics(metrics)
-      ok
-    end
+    metrics = parse_metrics(config[:metrics])
+    print_metrics(metrics)
+    ok
   end
 end
