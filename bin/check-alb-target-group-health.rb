@@ -25,10 +25,17 @@
 #   Check multiple target groups in a region
 #   check-alb-target-group-health.rb -r region -t target-group-a,target-group-b
 #
+#   Check multiple target groups starting with a prefix in name
+#   check-alb-target-group-health.rb -r region -p prod
+#
+#   Check multiple target groups starting with a prefix in name and excluding by name
+#   check-alb-target-group-health.rb -r region -p prod -e staging,dev
+#
 # LICENSE:
 #   Copyright 2017 Eric Heydrick <eheydrick@gmail.com>
 #   Released under the same terms as Sensu (the MIT license); see LICENSE
 #   for details.
+#   Modified by Nicolas Boutet <amd3002@gmail.com>
 
 require 'aws-sdk'
 require 'sensu-plugin/check/cli'
@@ -55,6 +62,19 @@ class CheckALBTargetGroupHealth < Sensu::Plugin::Check::CLI
          boolean: true,
          default: false
 
+  option :name_prefix,
+         description: 'Target group name prefix',
+         short: '-p NAME_PREFIX',
+         long: '--name-prefix NAME_PREFIX',
+         default: ''
+
+  option :exclude,
+         description: 'Exclude target groups by name',
+         short: '-e EXCLUDE',
+         long: '--exclude',
+         proc: proc { |a| a.split(',') },
+         default: []
+
   def alb
     @alb ||= Aws::ElasticLoadBalancingV2::Client.new
   end
@@ -64,6 +84,14 @@ class CheckALBTargetGroupHealth < Sensu::Plugin::Check::CLI
 
     target_groups_to_check = config[:target_group].split(',') if config[:target_group]
     target_groups = alb.describe_target_groups(names: target_groups_to_check).target_groups
+
+    unless config[:name_prefix].empty?
+      target_groups.keep_if { |target_group| target_group.target_group_name.start_with?(config[:name_prefix]) }
+    end
+
+    config[:exclude].each do |x|
+      target_groups.delete_if { |target_group| target_group.target_group_name.match(x) }
+    end
 
     target_groups.each do |target_group|
       health = alb.describe_target_health(target_group_arn: target_group.target_group_arn)
