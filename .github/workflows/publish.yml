@@ -2,9 +2,8 @@
 name: Publish to RubyGems and Bonsai
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
 
 jobs:
   publish:
@@ -48,14 +47,9 @@ jobs:
       - name: Publish to RubyGems
         run: gem push sensu-plugins-aws-*.gem
 
-      - name: Get tag name
-        id: tag_name
-        run: echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
-
       - name: Publish to Bonsai
-        run: bonsai/ruby-runtime/build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico ${REPO} ${REF} ${TAG}
+        run: bonsai/ruby-runtime/build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico ${REPO} ${REF} ${REF}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           REF: ${{ github.ref }}
-          TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
