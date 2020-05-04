@@ -1,6 +1,5 @@
 ## Sensu-Plugins-aws
 
-[![Build Status](https://travis-ci.org/boutetnico/sensu-plugins-aws.svg?branch=master)](https://travis-ci.org/boutetnico/sensu-plugins-aws)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-aws-boutetnico.svg)](https://badge.fury.io/rb/sensu-plugins-aws-boutetnico.svg)
 [![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/boutetnico/sensu-plugins-aws)
 
