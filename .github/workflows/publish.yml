@@ -42,19 +42,19 @@ jobs:
 
       - run: gem build sensu-plugins-aws.gemspec
 
-      - run: gem install sensu-plugins-aws-boutetnico.gem
+      - run: gem install sensu-plugins-aws-*.gem
 
       - name: Publish to RubyGems
         run: gem push sensu-plugins-aws-boutetnico.gem
 
-      # - name: Get the version
-      #   id: get_version
-      #   run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      # - name: Publish to Bonsai
-      #   run: bonsai/ruby-runtime/build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico ${REPO} ${REF} ${VERSION}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     REPO: ${{ github.repository }}
-      #     REF: ${{ github.ref }}
-      #     VERSION: ${{ steps.get_version.outputs.VERSION }}
+      - name: Publish to Bonsai
+        run: bonsai/ruby-runtime/build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico ${REPO} ${REF} ${VERSION}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref }}
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
