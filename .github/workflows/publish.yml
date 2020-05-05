@@ -42,10 +42,10 @@ jobs:
 
       - run: gem build sensu-plugins-aws.gemspec
 
-      - run: gem install sensu-plugins-aws.gemspec
+      - run: gem install sensu-plugins-aws-boutetnico.gem
 
       - name: Publish to RubyGems
-        run: gem push sensu-plugins-aws.gemspec
+        run: gem push sensu-plugins-aws-boutetnico.gem
 
       # - name: Get the version
       #   id: get_version
