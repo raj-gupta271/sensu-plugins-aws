@@ -2,8 +2,9 @@
 name: Publish to RubyGems and Bonsai
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - '*'
 
 jobs:
   publish:
