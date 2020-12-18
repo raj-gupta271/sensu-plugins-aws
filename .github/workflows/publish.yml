@@ -35,7 +35,7 @@ jobs:
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
 
-      - run: gem install bundler -v 2.1
+      - run: gem install bundler -v 2.2
 
       - run: bundle install
 

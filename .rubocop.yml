@@ -45,3 +45,84 @@ Style/ClassVars:
 Metrics/BlockLength:
   Exclude:
     - test/**/*.rb
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+Style/RedundantSort:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Style/FloatDivision:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/CaseLikeIf:
+  Enabled: false
+
+Layout/ClosingHeredocIndentation:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/SoleNestedConditional:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Layout/BeginEndAlignment:
+  Enabled: false
+
+Layout/RescueEnsureAlignment:
+  Enabled: false
+
+Migration/DepartmentName:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false

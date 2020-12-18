@@ -97,10 +97,10 @@ class AsgScaler < Sensu::Handler
     resp = resp.sub(' UTC', '+00:00')
 
     # Time of last autoscaling event
-    aws = DateTime.iso8601(resp) # rubocop: disable Style/DateTime
+    aws = DateTime.iso8601(resp)
 
     # Current System Time
-    now = DateTime.now.new_offset(0) # rubocop: disable Style/DateTime
+    now = DateTime.now.new_offset(0)
     diff = (now - aws).to_f	# This produces time since last event in days
     diff = diff * 24 * 60	# This produces the time since last event in minutes
     diff > cooldown_period.to_f
