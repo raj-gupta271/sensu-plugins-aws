@@ -15,7 +15,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
-  s.homepage               = 'https://github.com/boutetnico/sensu-plugins-aws'
+  s.homepage               = 'https://github.com/raj-gupta271/sensu-plugins-aws'
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => 'sensu-plugin',
                                'development_status' => 'active',
