@@ -14,8 +14,8 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
                               for EC2, SES, and SNS.'
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
-  s.files                  = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
-  s.homepage               = 'https://github.com/boutetnico/sensu-plugins-aws'
+  s.files                  = Dir.glob('{bin,lib}/**/*') + %w[README.md]
+  s.homepage               = 'https://github.com/raj-gupta271/sensu-plugins-aws'
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => 'sensu-plugin',
                                'development_status' => 'active',
@@ -28,7 +28,6 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 2.4.0'
   s.summary                = 'Sensu plugins for working with an AWS environment'
-  s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsAWS::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin',      '~> 4.0'
@@ -42,11 +41,11 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.add_runtime_dependency 'right_aws',         '3.1.0'
 
   s.add_development_dependency 'bundler',                   '~> 2.2'
-  s.add_development_dependency 'github-markup',             '~> 3.0'
-  s.add_development_dependency 'pry',                       '~> 0.10'
+  #s.add_development_dependency 'github-markup',             '~> 3.0'
+  #s.add_development_dependency 'pry',                       '~> 0.10'
   s.add_development_dependency 'rake',                      '~> 13.0'
-  s.add_development_dependency 'redcarpet',                 '~> 3.5'
-  s.add_development_dependency 'rspec',                     '~> 3.10'
-  s.add_development_dependency 'rubocop',                   '~> 1.6'
-  s.add_development_dependency 'yard',                      '~> 0.9.25'
+  #s.add_development_dependency 'redcarpet',                 '~> 3.5'
+  #s.add_development_dependency 'rspec',                     '~> 3.10'
+  #s.add_development_dependency 'rubocop',                   '~> 1.6'
+  #s.add_development_dependency 'yard',                      '~> 0.9.25'
 end
